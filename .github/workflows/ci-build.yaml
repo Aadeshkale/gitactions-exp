@@ -28,8 +28,8 @@ jobs:
         
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
-    # - name: Build and push
-    #   uses: docker/build-push-action@v5
-    #   with:
-    #     push: false
-    #     tags: welcome-app:latest, welcome-app:${{ env.sha }}
+    - name: Build and push
+      uses: docker/build-push-action@v5
+      with:
+        push: true
+        tags: welcome-app:$IMG_TAG, welcome-app:latest
