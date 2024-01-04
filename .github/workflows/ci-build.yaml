@@ -16,8 +16,10 @@ jobs:
     - name: git-checkout
       run: |
         echo "git-checkout done"
-    - name: Print ENV's
-      run: |
-        echo "  $current_branch "
-        echo " $job_id "
-        echo " $sha "
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+    - name: Build and push
+      uses: docker/build-push-action@v5
+      with:
+        push: false
+        tags: welcome-app:latest
