@@ -17,6 +17,7 @@ jobs:
       run: |
        echo "Repo name  : ${{ github.repository }}"
        echo "Repo branch: ${{ github.ref }}"
+       echo "Commit hash: ${{ github.sha }}"
 
     - name: printing workflow information
       run: |
