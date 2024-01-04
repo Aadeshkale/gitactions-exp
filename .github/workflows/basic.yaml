@@ -1,0 +1,15 @@
+
+on:
+  push:
+    branches: ['main']
+
+jobs:
+  build:
+  name: Intial setup
+  runs-on: ubuntu-latest  
+  steps:
+  - uses: actions/checkout@v3
+  - name: welcome msg
+    run: |
+      echo welcome to the gitaction world :)
+
