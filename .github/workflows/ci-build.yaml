@@ -5,7 +5,7 @@ on:
 env:
   current_branch: ${{  github.ref }} 
   job_id: ${{ github.run_number }}
-  sha: ${{ github.sha | cut -c1-8 }}
+  sha: ${{ github.sha }} | cut -c1-8
   
 jobs:
   build:
