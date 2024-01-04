@@ -12,4 +12,8 @@ jobs:
     - name: welcome msg
       run: |
         echo "welcome to the gitaction world :)"
-
+    - name: printing workflow information
+      run: |
+        echo "Repo name: ${{ github.repository }}"
+        echo "workspace name: ${{ github.workspace }}"
+        ls ${{ github.workspace }}
