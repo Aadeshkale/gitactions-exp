@@ -5,11 +5,11 @@ on:
 
 jobs:
   build:
-    name: Intial setup
+    name: Welcome Msg 
     runs-on: ubuntu-latest  
     steps:
     - uses: actions/checkout@v3
     - name: welcome msg
       run: |
-        echo welcome to the gitaction world :)
+        echo "welcome to the gitaction world :)"
 
