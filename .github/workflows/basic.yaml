@@ -15,5 +15,6 @@ jobs:
     - name: printing workflow information
       run: |
         echo "Repo name: ${{ github.repository }}"
-        echo "workspace name: ${{ github.workspace }}"
-        ls ${{ github.workspace }}
+        echo "workspace path: ${{ github.workspace }}"
+        echo "workspace files inside workspace:"
+        ls -la ${{ github.workspace }}
