@@ -6,7 +6,6 @@ env:
   current_branch: ${{  github.ref }} 
   job_id: ${{ github.run_number }}
   sha: ${{ github.sha }}
-  GITHUB_SHA_SHORT: ${{ $(echo $GITHUB_SHA | cut -c 1-6) }}
   
 jobs:
   build:
@@ -18,9 +17,12 @@ jobs:
       run: |
         echo "git-checkout done"
 
-    - name: create a custom tag 
-      run: |
-        echo "$GITHUB_SHA_SHORT" 
+    - name: create a custom tag   
+      run: echo "IMG_TAG=$(echo $GITHUB_SHA | cut -c 1-6)" >> $GITHUB_ENV
+    
+    - name: tag   
+      run: echo "$IMG_TAG"
+      
   
   # export IMG_TAG="$sha" | cut -c1-6
         
