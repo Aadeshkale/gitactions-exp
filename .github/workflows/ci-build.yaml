@@ -31,5 +31,6 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v5
       with:
-        push: true
-        tags: welcome-app:$IMG_TAG, welcome-app:latest
+        push: false
+        tags: welcome-app:'$IMG_TAG', welcome-app:${{ env.sha }}
+        
