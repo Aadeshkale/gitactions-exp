@@ -5,7 +5,7 @@ on:
 env:
   current_branch: ${{  github.ref }} 
   job_id: ${{ github.run_number }}
-  sha: ${{ github.sha }}
+  sha: ${{ github.sha }}::7
   
 jobs:
   build:
@@ -16,10 +16,14 @@ jobs:
     - name: git-checkout
       run: |
         echo "git-checkout done"
+
+    - name: print envs 
+      run: |
+        echo "$sha"
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
     - name: Build and push
       uses: docker/build-push-action@v5
       with:
         push: false
-        tags: welcome-app:latest, welcome-app:${{ env.job_id }}
+        tags: welcome-app:latest, welcome-app:${{ env.sha }}
