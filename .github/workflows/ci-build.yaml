@@ -18,7 +18,7 @@ jobs:
         echo "git-checkout done"
 
     - name: create a custom tag   
-      run: echo "IMG_TAG=$(echo $GITHUB_SHA | cut -c 1-6)" >> $GITHUB_ENV
+      run: echo "IMG_TAG=$(echo $GITHUB_SHA | cut -c 1-6)"-$job_id >> $GITHUB_ENV
     
     - name: tag   
       run: echo "$IMG_TAG"
