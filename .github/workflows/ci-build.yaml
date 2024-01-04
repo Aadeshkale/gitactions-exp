@@ -20,7 +20,7 @@ jobs:
     - name: create a custom tag 
       run: |
         export IMG_TAG="$sha" | cut -c1-6
-        echo "$GITHUB_ENV"
+        echo "$GITHUB_ENV" 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
     # - name: Build and push
