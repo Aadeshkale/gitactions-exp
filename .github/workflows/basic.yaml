@@ -2,11 +2,11 @@
 on:
   push:
     branches:
-      - 'main'
+      - main
 
 jobs:
   build:
-    name: Welcome Msg 
+    name: Display Information 
     runs-on: ubuntu-latest  
     steps:
     - uses: actions/checkout@v3
