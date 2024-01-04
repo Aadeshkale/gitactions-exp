@@ -13,12 +13,14 @@ jobs:
     - name: welcome msg
       run: |
         echo "welcome to the gitaction world :)"
-    - name: Display Repo information
+    - name: Display repo and workflow information
       run: |
        echo "Repo name  : ${{ github.repository }}"
        echo "Repo branch: ${{ github.ref }}"
        echo "Commit hash: ${{ github.sha }}"
-
+       echo "workflow run id: ${{ github.run_id }}"
+       echo "workflow run id: ${{ github.run_number }}"
+       
     - name: printing workflow information
       run: |
         echo "workspace path: ${{ github.workspace }}"
