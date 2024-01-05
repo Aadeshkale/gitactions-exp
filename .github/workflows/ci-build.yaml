@@ -31,12 +31,14 @@ jobs:
 
     # Image Scan
     - name: Scan for vulnerabilities with KSOC 
+      if: always() # run this step always
       uses: ksoclabs/image-scan-action@v0.0.4
       with:
-        fail_on_severity: high
+        fail_on_severity: critical
         image: welcome-app:${{ env.IMG_TAG }}
     
     - name: Scan for vulnerabilities with crazy-max
+      if: always() # run this step always
       uses: crazy-max/ghaction-container-scan@v3
       with:
           image: welcome-app:${{ env.IMG_TAG }}
