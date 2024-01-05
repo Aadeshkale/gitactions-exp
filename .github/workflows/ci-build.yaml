@@ -44,3 +44,4 @@ jobs:
       with:
           image: welcome-app:${{ env.IMG_TAG }}
           severity_threshold: HIGH
+          dockerfile: ./Dockerfile
