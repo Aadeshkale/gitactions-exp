@@ -38,4 +38,10 @@ jobs:
           CVE-2021-1234
           CVE-2021-5678
         image: welcome-app:${{ env.IMG_TAG }}
-        
+    
+    - name: Anchore Scan image
+      uses: anchore/scan-action@v3
+      with:
+        image: welcome-app:${{ env.IMG_TAG }}
+        fail-build: true
+        severity-cutoff: critical
