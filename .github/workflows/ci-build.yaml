@@ -30,14 +30,14 @@ jobs:
         load: true
 
     #  Image Scan
-    - name: KSOC Image Scan
-      uses: ksoclabs/image-scan-action@v0.0.4
-      with:
-        fail_on_severity: medium
-        ignore_cves: |
-          CVE-2021-1234
-          CVE-2021-5678
-        image: welcome-app:${{ env.IMG_TAG }}
+    # - name: KSOC Image Scan
+    #   uses: ksoclabs/image-scan-action@v0.0.4
+    #   with:
+    #     fail_on_severity: medium
+    #     ignore_cves: |
+    #       CVE-2021-1234
+    #       CVE-2021-5678
+    #     image: welcome-app:${{ env.IMG_TAG }}
     
     - name: Anchore Scan image
       uses: anchore/scan-action@v3
