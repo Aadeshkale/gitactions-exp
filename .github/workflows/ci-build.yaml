@@ -27,6 +27,7 @@ jobs:
       with:
         push: false
         tags: welcome-app:${{ env.IMG_TAG }}, welcome-app:latest
+        load: true
 
     #  Image Scan
     - name: KSOC Image Scan
