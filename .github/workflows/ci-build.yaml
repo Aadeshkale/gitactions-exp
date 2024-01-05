@@ -29,17 +29,14 @@ jobs:
         tags: welcome-app:${{ env.IMG_TAG }}, welcome-app:latest
         load: true
 
-    #  Image Scan
-    # - name: KSOC Image Scan
-    #   uses: ksoclabs/image-scan-action@v0.0.4
-    #   with:
-    #     fail_on_severity: medium
-    #     ignore_cves: |
-    #       CVE-2021-1234
-    #       CVE-2021-5678
-    #     image: welcome-app:${{ env.IMG_TAG }}
+    # Image Scan
+    - name: Scan for vulnerabilities with KSOC 
+      uses: ksoclabs/image-scan-action@v0.0.4
+      with:
+        fail_on_severity: high
+        image: welcome-app:${{ env.IMG_TAG }}
     
-    - name: Scan for vulnerabilities
+    - name: Scan for vulnerabilities with crazy-max
       uses: crazy-max/ghaction-container-scan@v3
       with:
           image: welcome-app:${{ env.IMG_TAG }}
