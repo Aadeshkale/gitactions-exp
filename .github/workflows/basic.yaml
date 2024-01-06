@@ -1,28 +1,28 @@
 
-# on:
-#   push:
-#     branches:
-#       - main
+on:
+  push:
+    branches:
+      - main
 
-# jobs:
-#   build:
-#     name: Display Information 
-#     runs-on: ubuntu-latest  
-#     steps:
-#     - uses: actions/checkout@v3
-#     - name: welcome msg
-#       run: |
-#         echo "welcome to the gitaction world :)"
-#     - name: Display repo and workflow information
-#       run: |
-#        echo "Repo name  : ${{ github.repository }}"
-#        echo "Repo branch: ${{ github.ref }}"
-#        echo "Commit hash: ${{ github.sha }}"
-#        echo "workflow run id: ${{ github.run_id }}"
-#        echo "workflow run id: ${{ github.run_number }}"
+jobs:
+  build:
+    name: Display Information 
+    runs-on: ubuntu-latest  
+    steps:
+    - uses: actions/checkout@v3
+    - name: welcome msg
+      run: |
+        echo "welcome to the gitaction world :)"
+    - name: Display repo and workflow information
+      run: |
+       echo "Repo name  : ${{ github.repository }}"
+       echo "Repo branch: ${{ github.ref }}"
+       echo "Commit hash: ${{ github.sha }}"
+       echo "workflow run id: ${{ github.run_id }}"
+       echo "workflow run id: ${{ github.run_number }}"
        
-#     - name: printing workflow information
-#       run: |
-#         echo "workspace path: ${{ github.workspace }}"
-#         echo "workspace files inside workspace:"
-#         ls -la ${{ github.workspace }}
+    - name: printing workflow information
+      run: |
+        echo "workspace path: ${{ github.workspace }}"
+        echo "workspace files inside workspace:"
+        ls -la ${{ github.workspace }}
