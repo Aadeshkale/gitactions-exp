@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: welcome-app
+  name: welcome-app-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: welcome-app
+  template:
+    metadata:
+      labels:
+        app: welcome-app
+    spec:
+      containers:
+      - image: welcome-app:656
+        name: welcome-app
+        ports:
+        - containerPort: 8080
