@@ -62,8 +62,7 @@ jobs:
     - name: Update image tag
       run: |
         git config --unset-all http.https://github.com/.extraheader
-        git clone git@github.com:Aadeshkale/kube-cd.git
-        https://Aadeshkale:${{ env.IMG_TAG }}@github.com/Aadeshkale/kube-cd
+        git clone https://Aadeshkale:${{ env.IMG_TAG }}@github.com/Aadeshkale/kube-cd
         cd kube-cd
         sed -i 's|image:.*|image: '${{ env.IMG_TAG }}'|' deployment.yaml  
         git add deployment.yaml
