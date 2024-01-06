@@ -73,14 +73,10 @@ jobs:
     #     git push
 
     # using custom action 
-    - uses: Aadeshkale/edzyaml@main  
-      with:
-        file_path: "./"
-        file_name: deployment.yaml
-        yaml_key: image    
-        yaml_value: welcome-app:${{ env.IMG_TAG }}   
-    - name: edzyaml action
-      # uses: actions/checkout@v3
-      run: |
-        pwd
-        ls -la
+    # - uses: Aadeshkale/edzyaml@main  
+    #   with:
+    #     file_path: "./"
+    #     file_name: deployment.yaml
+    #     yaml_key: image    
+    #     yaml_value: welcome-app:${{ env.IMG_TAG }}   
+
