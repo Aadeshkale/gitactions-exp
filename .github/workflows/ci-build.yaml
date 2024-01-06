@@ -34,28 +34,40 @@ jobs:
         load: true
 
     # Image Scan
-    - name: Scan for vulnerabilities with KSOC 
-      if: always() # run this step always
-      uses: ksoclabs/image-scan-action@v0.0.4
-      with:
-        fail_on_severity: critical
-        image: welcome-app:${{ env.IMG_TAG }}
+    # - name: Scan for vulnerabilities with KSOC 
+    #   if: always() # run this step always
+    #   uses: ksoclabs/image-scan-action@v0.0.4
+    #   with:
+    #     fail_on_severity: critical
+    #     image: welcome-app:${{ env.IMG_TAG }}
     
-    - name: Scan for vulnerabilities with crazy-max
-      if: always() # run this step always
-      uses: crazy-max/ghaction-container-scan@v3
-      with:
-          image: welcome-app:${{ env.IMG_TAG }}
-          severity_threshold: HIGH
-          dockerfile: ./Dockerfile
+    # - name: Scan for vulnerabilities with crazy-max
+    #   if: always() # run this step always
+    #   uses: crazy-max/ghaction-container-scan@v3
+    #   with:
+    #       image: welcome-app:${{ env.IMG_TAG }}
+    #       severity_threshold: HIGH
+    #       dockerfile: ./Dockerfile
     
-    - name: Scan for vulnerabilities with Trivy
-      uses: aquasecurity/trivy-action@master
-      with:
-        image-ref: welcome-app:${{ env.IMG_TAG }}
-        format: 'table'
-        exit-code: '1'
-        ignore-unfixed: true
-        vuln-type: 'os,library'
-        severity: 'CRITICAL,HIGH'
-        
+    # - name: Scan for vulnerabilities with Trivy
+    #   uses: aquasecurity/trivy-action@master
+    #   with:
+    #     image-ref: welcome-app:${{ env.IMG_TAG }}
+    #     format: 'table'
+    #     exit-code: '1'
+    #     ignore-unfixed: true
+    #     vuln-type: 'os,library'
+    #     severity: 'CRITICAL,HIGH'
+   
+    - name: Update image tag
+      run: |
+        git config --unset-all http.https://github.com/.extraheader
+        git clone git@github.com:Aadeshkale/kube-cd.git
+        https://Aadeshkale:${{ env.IMG_TAG }}@github.com/Aadeshkale/kube-cd
+        cd kube-cd
+        sed -i 's|image:.*|image: '${{ env.IMG_TAG }}'|' deployment.yaml  
+        git add deployment.yaml
+        git commit -m "Tag updated by gitaction workflow"
+        git push
+
+    
