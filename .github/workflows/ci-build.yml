@@ -59,7 +59,7 @@ jobs:
     #     vuln-type: 'os,library'
     #     severity: 'CRITICAL,HIGH'
    
-    - name: Update image tag
+    - name: Update image tags
       run: |
         git config --unset-all http.https://github.com/.extraheader
         git config --global user.email "aadeshkale.developer.56619@gmail.com"
