@@ -62,8 +62,8 @@ jobs:
     - name: Update image tag
       run: |
         git config --unset-all http.https://github.com/.extraheader
-        git config --global user.email "aadesh.kale6195@gmail.com"
-        git config --global user.name "Aadesh "
+        git config --global user.email "aadeshkale619@gmail.com"
+        git config --global user.name "Aadeshkale"
       
         git clone https://Aadeshkale:${{ env.IMG_TAG }}@github.com/Aadeshkale/kube-cd
         cd kube-cd
