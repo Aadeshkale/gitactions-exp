@@ -75,7 +75,7 @@ jobs:
     # using custom action 
     - uses: Aadeshkale/edzyaml@main  
       with:
-        file_path: ${{ github.workspace }}
+        file_path: ./
         file_name: deployment.yaml
         yaml_key: image    
         yaml_value: welcome-app:${{ env.IMG_TAG }}   
