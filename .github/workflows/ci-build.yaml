@@ -73,10 +73,14 @@ jobs:
     #     git push
 
     # using custom action 
-    - name: edzyaml action
-      uses: Aadeshkale/edzyaml@main
+    - uses: Aadeshkale/edzyaml@main  
       with:
         file_path: ${{ github.workspace }}
         file_name: deployment.yaml
         yaml_key: image    
         yaml_value: welcome-app:${{ env.IMG_TAG }}   
+    - name: edzyaml action
+      # uses: actions/checkout@v3
+      run: |
+        pwd
+        ls -la
