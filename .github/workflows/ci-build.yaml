@@ -77,6 +77,12 @@ jobs:
       with:
         file_path: "./"
         file_name: deployment.yaml
-        yaml_key: image    
+        yaml_key: 'spec.template.spec.containers.0.image'    
         yaml_value: welcome-app:${{ env.IMG_TAG }}   
+    - name: result check
+      run: |
+        echo "see file content changed or not :)"
+        pwd
+        ls -la    
+        cat deployment.yaml  
 
