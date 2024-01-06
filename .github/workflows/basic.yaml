@@ -1,4 +1,4 @@
-
+name: basic gitaction workflow
 on:
   push:
     branches:
