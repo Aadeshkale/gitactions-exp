@@ -65,7 +65,7 @@ jobs:
         git config --global user.email "aadeshkale619@gmail.com"
         git config --global user.name "Aadeshkale"
       
-        git clone https://Aadeshkale:${{ env.IMG_TAG }}@github.com/Aadeshkale/kube-cd
+        git clone https://Aadeshkale:${{ env.cd_token }}@github.com/Aadeshkale/kube-cd
         cd kube-cd
         sed -i 's|image:.*|image: '${{ env.IMG_TAG }}'|' deployment.yaml  
         git add deployment.yaml
