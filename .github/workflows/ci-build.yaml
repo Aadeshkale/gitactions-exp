@@ -73,16 +73,14 @@ jobs:
     #     git push
 
     # using custom action 
-    - uses: Aadeshkale/edzyaml@main  
+    - name: using edzyaml for pass value to remote repo yaml file
+      uses: Aadeshkale/edzyaml@main
       with:
-        file_path: "./"
-        file_name: deployment.yaml
-        yaml_key: 'spec.template.spec.containers.0.image'    
-        yaml_value: welcome-app:${{ env.IMG_TAG }}   
-    - name: result check
-      run: |
-        echo "see file content changed or not :)"
-        pwd
-        ls -la    
-        cat deployment.yaml  
+        git_username: Aadeshkale
+        git_user_email: aadeshkale595@gmail.com
+        git_repo: Aadeshkale/kube-cd
+        git_token: ${{ secrets.git_token }}
+        yaml_file_path: deployment.yaml
+        yaml_key_path: 'spec.template.spec.containers.0.image'    
+        yaml_value: welcome-app:${{ env.IMG_TAG }} 
 
